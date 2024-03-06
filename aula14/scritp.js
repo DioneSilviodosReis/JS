@@ -1,19 +1,23 @@
-function carregar(){
-    var msg = window.document.getElementById('msg')
-    var img = window.document.getElementById('imagem')
+function verificar(){
     var data = new Date()
-    var hora = data.getHours()
+    var ano = data.getFullYear()
+    var fano = document.getElementById('txtano')
+    var res = document.querySelector('div#res')
 
-    msg.innerHTML = `Agora são ${hora} horas.`
-    if (hora >= 0 && hora < 12){
-        img.src = '../aula12/imagens/manha.jpg'
-        document.body.style.background = '#e2cd9f'
-    }else if (hora >= 12 && hora <= 18){
-        img.src = '../aula12/imagens/tarde.jpg'
-        document.body.style.background = '#b9846f'
+    if(fano.value.length == 0 || Number(fano.value) > ano){
+        window.alert('[ERRO] Verifique os dados e tente novamente!')
     }else{
-        img.src = '../aula12/imagens/noite.jpg'
-        document.body.style.background = '#515154'
+        var fsex = document.getElementsByName('radsex')
+        var idade = ano - Number(fano.value)
+        var genero = ''
+        if(fsex[0].checked){
+            genero = 'Homem'
+        
+        }else{
+            genero = 'Mulher'
+        }
+        res.style.textAling = 'center'
+        res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
     }
 
 }
