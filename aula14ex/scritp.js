@@ -7,11 +7,18 @@ function contar() {
     var p = Number(passo.value);
     var res = document.getElementById('res');
 
-
-    while (ini < f) {
-        res.innerHTML += ini + ' ';
-        ini = ini + p;
+    if( inicio.value.length == 0 || inicio.value.length == 0 || inicio.value.length == 0)
+    {
+        window.alert('[ERRO] Falta dados!')
+    }else{
+        
+        while (ini < f) {
+            res.innerHTML += `${ini} + \u{1F449}`;
+            ini = ini + p;
+        }
     }
+
+    
 }
     
 
